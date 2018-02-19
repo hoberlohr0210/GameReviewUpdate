@@ -1,0 +1,37 @@
+﻿
+@model IList<GameReview.Models.Game>
+
+<h1>@ViewBag.Type</h1>
+
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Type</th>
+    </tr>
+
+    @foreach (var game in Model)
+    {
+        <tr>
+            <td>@game.Title</td>
+            <td>@game.Description</td>
+            <td>@game.Type.Name</td>
+        </tr>
+    }
+</table>
+
+@if (Model.Count == 0)
+{
+    <p>No games yet!</p>
+}
+
+
+<p>
+    <a asp-controller="Game" asp-action="Add">Add</a>
+    <a>|</a>
+    <a asp-controller="Game" asp-action="Remove">Remove</a>
+</p>
+
+<br />
+<br />

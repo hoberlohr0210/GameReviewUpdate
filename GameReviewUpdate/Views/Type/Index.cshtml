@@ -1,0 +1,18 @@
+﻿@model IList<GameReview.Models.GameType>
+
+<h2>Types of Games</h2>
+
+@{
+
+    <p><a asp-controller="Type" asp-action="Add">Add Type</a></p>
+    <ul>
+        @foreach (var type in Model)
+        {
+            <li>
+                <a asp-controller="Game" asp-action="Type" asp-route-id="@type.ID">@type.Name</a>
+            </li>
+
+        }
+    </ul>
+    ViewData["Title"] = "Index";
+}
