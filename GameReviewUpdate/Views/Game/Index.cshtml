@@ -9,6 +9,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>Type</th>
+        <th>Number of Players</th>
     </tr>
 
     @foreach (var game in Model)
@@ -17,6 +18,7 @@
             <td>@game.Title</td>
             <td>@game.Description</td>
             <td>@game.Type.Name</td>
+            <td>@game.Players</td>
         </tr>
     }
 </table>

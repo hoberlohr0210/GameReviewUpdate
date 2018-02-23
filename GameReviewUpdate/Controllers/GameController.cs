@@ -6,9 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using GameReview.Models;
 using GameReview.ViewModels;
 using GameReviewUpdate.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameReview.Controllers
 {
+    [Authorize]
     public class GameController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -18,7 +20,7 @@ namespace GameReview.Controllers
             this.context = dbContext;
         }
 
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
 
@@ -45,7 +47,8 @@ namespace GameReview.Controllers
                 {
                     Title = addGameViewModel.Title,
                     Description = addGameViewModel.Description,
-                    Type = newGameType
+                    Type = newGameType,
+                    Players = addGameViewModel.Players
                 };
                 context.Games.Add(newGame);
                 context.SaveChanges();

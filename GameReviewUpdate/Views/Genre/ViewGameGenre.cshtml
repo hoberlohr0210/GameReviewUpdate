@@ -17,4 +17,7 @@
     <p><i>No game genres yet</i></p>
 }
 
-<p><a asp-controller="Genre" asp-action="AddItem" asp-route-id="@Model.Genre.ID">Add Game</a></p>
+@if (User.IsInRole("Admin"))
+{
+    <p><a asp-controller="Genre" asp-action="AddItem" asp-route-id="@Model.Genre.ID">Add Game</a></p>
+}

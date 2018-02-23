@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <UserSecretsId>aspnet-GameReviewUpdate-7DE671C3-0BB2-4EB9-BC6B-EF9729B0329B</UserSecretsId>
   </PropertyGroup>
 
 

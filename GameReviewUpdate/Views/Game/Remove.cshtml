@@ -2,12 +2,15 @@
 
 <form method="post">
 
-    @foreach (var game in ViewBag.games)
+    @if (User.IsInRole("Admin"))
     {
-        <input type="checkbox" name="gameIds" id="@game.ID" value="@game.ID" />
-        <label for="@game.ID">@game.Title</label>
-        <br />
-    }
 
+        @foreach (var game in ViewBag.games)
+        {
+            <input type="checkbox" name="gameIds" id="@game.ID" value="@game.ID" />
+            <label for="@game.ID">@game.Title</label>
+            <br />
+        }
+    }
     <input type="submit" value="Remove Selected Game(s)" />
 </form>

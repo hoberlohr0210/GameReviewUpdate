@@ -17,7 +17,7 @@ namespace GameReviewUpdate.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "This is a website where you can read about board games.";
 
             return View();
         }

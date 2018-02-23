@@ -7,9 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using GameReviewUpdate.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameReview.Controllers
 {
+    [Authorize]
     public class GenreController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -19,6 +21,7 @@ namespace GameReview.Controllers
             this.context = dbContext;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             List<Genre> genres = context.Genres.ToList();
@@ -50,6 +53,7 @@ namespace GameReview.Controllers
             return View(addGenreViewModel);
         }
 
+        [AllowAnonymous]
         public IActionResult ViewGenre(int id)
         {
             List<GameGenre> items = context

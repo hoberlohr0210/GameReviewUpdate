@@ -20,6 +20,12 @@
         <select asp-for="TypeID" asp-items="Model.Types"></select>
     </div>
 
+    <div class="form-group">
+        <label asp-for="Players"></label>
+        <input class="form-control" asp-for="Players" />
+        <span asp-validation-for="Players"></span>
+    </div>
+
     <input type="submit" value="Add Game" />
 
 </form>

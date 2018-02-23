@@ -21,6 +21,10 @@ namespace GameReview.ViewModels
         [Display(Name = "Type")]
         public int TypeID { get; set; }
 
+        [Required]
+        [Display(Name = "Number of Players")]
+        public string Players { get; set; }
+
         public List<SelectListItem> Types { get; set; }
         public AddGameViewModel() { }
 
