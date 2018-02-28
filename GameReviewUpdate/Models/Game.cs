@@ -11,6 +11,7 @@ namespace GameReview.Models
         public string Players { get; set; }
         public int ID { get; set; }
         public int TypeID { get; set; }
+        public int ReviewID { get; set; }
 
         public IList<GameGenre> GameGenres { get; set; }
 

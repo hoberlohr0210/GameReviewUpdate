@@ -1,0 +1,27 @@
+﻿@model GameReview.ViewModels.AddReviewViewModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Add</h2>
+
+<form a asp-controller="Review" asp-action="Add" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Review"></label>
+        <input asp-for="Review" />
+        <span asp-validation-for="Review"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" />
+        <span asp-validation-for="Rating"></span>
+    </div>
+
+</form>

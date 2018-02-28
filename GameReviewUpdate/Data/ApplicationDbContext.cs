@@ -15,6 +15,7 @@ namespace GameReviewUpdate.Data
         public DbSet<GameType> Types { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<GameGenre> GameGenres { get; set; }
+        public DbSet<ReviewGame> Reviews { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

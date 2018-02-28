@@ -1,0 +1,22 @@
+﻿@model IList<GameReview.Models.ReviewGame>
+
+<h2>Game Reviews</h2>
+
+@{
+    @*@if (User.IsInRole("Admin"))*@
+{
+    <p><a asp-controller="Review" asp-action="Add">Add Review</a></p>
+}
+
+    <ul>
+        @foreach (var review in Model)
+        {
+            <li>
+                <a asp-controller="Game" asp-action="Review" asp-route-id="@review.ID">@review.Name</a>
+            </li>
+
+        }
+    </ul>
+    ViewData["Title"] = "Index";
+}
+
