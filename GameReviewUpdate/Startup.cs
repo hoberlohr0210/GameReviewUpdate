@@ -30,8 +30,8 @@ namespace GameReviewUpdate
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-                options.UseInMemoryDatabase("CustomDB"));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                //options.UseInMemoryDatabase("CustomDB"));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -75,44 +75,44 @@ namespace GameReviewUpdate
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            CreateRoles(serviceProvider).Wait();
-        }
+            //CreateRoles(serviceProvider).Wait();
+        
 
-        private async Task CreateRoles(IServiceProvider serviceProvider)
-        {
-            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-            string[] roleNames = { "Admin", "Manager", "Member" };
-            IdentityResult roleResult;
+        //private async Task CreateRoles(IServiceProvider serviceProvider)
+        //{
+        //    var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        //    var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        //    string[] roleNames = { "Admin", "Manager", "Member" };
+        //    IdentityResult roleResult;
 
-            foreach (var roleName in roleNames)
-            {
-                //creating the roles and seeding them to the database
-                var roleExist = await RoleManager.RoleExistsAsync(roleName);
-                if (!roleExist)
-                {
-                    roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
-                }
-            }
+        //    foreach (var roleName in roleNames)
+        //    {
+        //        //creating the roles and seeding them to the database
+        //        var roleExist = await RoleManager.RoleExistsAsync(roleName);
+        //        if (!roleExist)
+        //        {
+        //            roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
+        //        }
+        //    }
 
-            var poweruser = new ApplicationUser
-            {
-                UserName = Configuration.GetSection("AppSettings")["UserEmail"],
-                Email = Configuration.GetSection("AppSettings")["UserEmail"]
-            };
+        //    var poweruser = new ApplicationUser
+        //    {
+        //        UserName = Configuration.GetSection("AppSettings")["UserEmail"],
+        //        Email = Configuration.GetSection("AppSettings")["UserEmail"]
+        //    };
 
-            string UserPassword = Configuration.GetSection("AppSettings")["UserPassword"];
-            var _user = await UserManager.FindByEmailAsync(Configuration.GetSection("AppSettings")["UserEmail"]);
+        //    string UserPassword = Configuration.GetSection("AppSettings")["UserPassword"];
+        //    var _user = await UserManager.FindByEmailAsync(Configuration.GetSection("AppSettings")["UserEmail"]);
 
-            if(_user == null)
-            {
-                var createPowerUser = await UserManager.CreateAsync(poweruser, UserPassword);
-                if(createPowerUser.Succeeded)
-                {
-                    //here we tie the new user to the "Admin" role
-                    await UserManager.AddToRoleAsync(poweruser, "Admin");
-                }
-            }
+        //    if(_user == null)
+        //    {
+        //        var createPowerUser = await UserManager.CreateAsync(poweruser, UserPassword);
+        //        if(createPowerUser.Succeeded)
+        //        {
+        //            //here we tie the new user to the "Admin" role
+        //            await UserManager.AddToRoleAsync(poweruser, "Admin");
+        //        }
+        //    }
         }
 
       
