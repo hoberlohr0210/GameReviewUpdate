@@ -25,6 +25,7 @@ namespace GameReview.Controllers
         {
 
             IList<Game> games = context.Games.Include(g => g.Type).ToList();
+            IList<Game> reviews = context.Games.Include(r => r.Review).ToList();
 
             return View(games);
         }

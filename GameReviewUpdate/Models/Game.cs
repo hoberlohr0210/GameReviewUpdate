@@ -8,6 +8,7 @@ namespace GameReview.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public GameType Type { get; set; }
+        public ReviewGame Review { get; set; }
         public string Players { get; set; }
         public int ID { get; set; }
         public int TypeID { get; set; }

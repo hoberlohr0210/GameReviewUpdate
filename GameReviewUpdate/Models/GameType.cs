@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,6 +10,8 @@ namespace GameReview.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public IList<Game> Games { get; set; }
+        public IList<Game> GamesId { get; set; }
+        [ForeignKey("GamesId")]
+        public virtual Game Games { get; set; }
     }
 }

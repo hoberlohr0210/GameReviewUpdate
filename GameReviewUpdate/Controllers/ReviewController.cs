@@ -18,7 +18,7 @@ namespace GameReview.Controllers
         public IActionResult Index()
         {
             var reviewGame = context.Reviews.ToList();
-            return View();
+            return View(reviewGame);
         }
 
         public IActionResult Add()
