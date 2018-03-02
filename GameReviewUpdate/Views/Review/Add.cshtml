@@ -9,9 +9,8 @@
 <form a asp-controller="Review" asp-action="Add" method="post">
 
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
+        <label asp-for="GameID"></label>
+        <select asp-for="GameID" asp-items="Model.Games"></select>
     </div>
     <div class="form-group">
         <label asp-for="Review"></label>

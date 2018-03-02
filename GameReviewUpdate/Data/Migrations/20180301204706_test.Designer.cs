@@ -11,9 +11,10 @@ using System;
 namespace GameReviewUpdate.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180301204706_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +32,7 @@ namespace GameReviewUpdate.Data.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int>("TypeID");
+                    b.Property<int?>("TypeID");
 
                     b.HasKey("ID");
 
@@ -82,13 +83,13 @@ namespace GameReviewUpdate.Data.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("GameID");
+                    b.Property<int?>("GameID");
+
+                    b.Property<string>("Name");
 
                     b.Property<int>("Rating");
 
                     b.Property<string>("Review");
-
-                    b.Property<string>("Title");
 
                     b.HasKey("ID");
 
@@ -260,8 +261,7 @@ namespace GameReviewUpdate.Data.Migrations
                 {
                     b.HasOne("GameReview.Models.GameType", "Type")
                         .WithMany("Games")
-                        .HasForeignKey("TypeID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TypeID");
                 });
 
             modelBuilder.Entity("GameReview.Models.GameGenre", b =>
@@ -281,8 +281,7 @@ namespace GameReviewUpdate.Data.Migrations
                 {
                     b.HasOne("GameReview.Models.Game", "Game")
                         .WithMany("Reviews")
-                        .HasForeignKey("GameID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("GameID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

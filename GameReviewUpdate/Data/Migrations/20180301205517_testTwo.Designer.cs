@@ -11,9 +11,10 @@ using System;
 namespace GameReviewUpdate.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180301205517_testTwo")]
+    partial class testTwo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,11 +85,11 @@ namespace GameReviewUpdate.Data.Migrations
 
                     b.Property<int>("GameID");
 
+                    b.Property<string>("Name");
+
                     b.Property<int>("Rating");
 
                     b.Property<string>("Review");
-
-                    b.Property<string>("Title");
 
                     b.HasKey("ID");
 

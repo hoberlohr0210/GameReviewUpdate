@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GameReview.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class TypeController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -44,6 +44,7 @@ namespace GameReview.Controllers
                 GameType newType = new GameType
                 {
                     Name = addTypeViewModel.Name
+
                 };
 
                 context.Types.Add(newType);

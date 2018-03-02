@@ -11,9 +11,10 @@ using System;
 namespace GameReviewUpdate.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180302183859_controllerUpdate")]
+    partial class controllerUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,13 +83,13 @@ namespace GameReviewUpdate.Data.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("GameID");
+                    b.Property<int?>("GameID");
+
+                    b.Property<string>("Name");
 
                     b.Property<int>("Rating");
 
                     b.Property<string>("Review");
-
-                    b.Property<string>("Title");
 
                     b.HasKey("ID");
 
@@ -281,8 +282,7 @@ namespace GameReviewUpdate.Data.Migrations
                 {
                     b.HasOne("GameReview.Models.Game", "Game")
                         .WithMany("Reviews")
-                        .HasForeignKey("GameID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("GameID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

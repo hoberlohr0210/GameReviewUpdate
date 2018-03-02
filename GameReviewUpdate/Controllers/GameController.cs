@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GameReview.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class GameController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -25,7 +25,7 @@ namespace GameReview.Controllers
         {
 
             IList<Game> games = context.Games.Include(g => g.Type).ToList();
-            IList<Game> reviews = context.Games.Include(r => r.Review).ToList();
+            //IList<Game> reviews = context.Games.Include(r => r.Review).ToList();
 
             return View(games);
         }
