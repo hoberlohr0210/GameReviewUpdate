@@ -18,18 +18,18 @@ namespace GameReview.ViewModels
         //[Display(Name = "Name of Game")]
         //public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Review must not be left blank.")]
         [Display(Name = "Review")]
         public string Review { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Rating must be between 1-5")]
         [Display(Name = "Rating 1-5")]
         public int Rating { get; set; }
 
         public List<SelectListItem> Games { get; set; }
         public AddReviewViewModel() { }
 
-        public AddReviewViewModel(IEnumerable<ReviewGame> games)
+        public AddReviewViewModel(IEnumerable<Game> games)
         {
             Games = new List<SelectListItem>();
             foreach (var game in games)

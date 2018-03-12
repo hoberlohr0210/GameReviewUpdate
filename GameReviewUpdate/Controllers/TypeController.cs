@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GameReview.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class TypeController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -22,7 +22,7 @@ namespace GameReview.Controllers
         {
             context = dbContext;
         }
-        // GET: /<controller>/
+       
         [AllowAnonymous]
         public IActionResult Index()
         {

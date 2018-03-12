@@ -1,6 +1,7 @@
 ﻿using GameReview.Models;
 using GameReview.ViewModels;
 using GameReviewUpdate.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 
 namespace GameReview.Controllers
 {
+    [Authorize]
     public class ReviewController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -17,17 +19,17 @@ namespace GameReview.Controllers
             this.context = dbContext;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
-            //IList<ReviewGame> reviews = context.Reviews.Include(r => r.Game).ToList();
-
-            var reviewGame = context.Reviews.ToList();
-            return View(reviewGame);
+            IList<ReviewGame> reviews = context.Reviews.Include(r => r.Game).ToList();
+            return View(reviews);
         }
 
         public IActionResult Add()
         {
-            AddReviewViewModel addReviewViewModel = new AddReviewViewModel();
+            IEnumerable<Game> games = context.Games.ToList();
+            AddReviewViewModel addReviewViewModel = new AddReviewViewModel(games);
             return View(addReviewViewModel);
         }
 
@@ -40,7 +42,6 @@ namespace GameReview.Controllers
 
                 ReviewGame newReview = new ReviewGame
                 {
-                    //Name = addReviewViewModel.Name,
                     Review = addReviewViewModel.Review,
                     Rating = addReviewViewModel.Rating,
                     Game = newGame

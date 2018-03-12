@@ -1,6 +1,6 @@
 ﻿@model IList<GameReview.Models.ReviewGame>
 
-<h2>Game Reviews</h2>
+<h2>@ViewBag.Game</h2>
 
 <table class="table">
 
@@ -10,12 +10,12 @@
         <th>Rating</th>
     </tr>
 
-    @foreach (var game in Model)
+    @foreach (var review in Model)
     {
         <tr>
-            <td>@game.Game.Title</td>
-            <td>@game.Review</td>
-            <td>@game.Rating</td>
+            <td>@review.Game.Title</td>
+            <td>@review.Review</td>
+            <td>@review.Rating</td>
         </tr>
     }
 </table>
@@ -23,17 +23,12 @@
 @if (Model.Count == 0)
 {
     <p>No reviews yet!</p>
-}
+}   
+
+<p><a asp-controller="Review" asp-action="Add">Add Review</a></p>
 
 
-
-@{
-   
-{
-    <p><a asp-controller="Review" asp-action="Add">Add Review</a></p>
-}
-
-    <ul>
+    @*<ul>
         @foreach (var review in Model)
         {
             <li>
@@ -43,5 +38,5 @@
         }
     </ul>
     ViewData["Title"] = "Index";
-}
+}*@
 

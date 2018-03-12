@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GameReview.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class GameController : Controller
     {
         private readonly ApplicationDbContext context;

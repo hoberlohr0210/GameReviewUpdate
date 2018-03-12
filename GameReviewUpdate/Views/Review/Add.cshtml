@@ -1,9 +1,5 @@
 ﻿@model GameReview.ViewModels.AddReviewViewModel
 
-@{
-    ViewData["Title"] = "Add";
-}
-
 <h2>Add</h2>
 
 <form a asp-controller="Review" asp-action="Add" method="post">
@@ -22,5 +18,7 @@
         <input asp-for="Rating" />
         <span asp-validation-for="Rating"></span>
     </div>
+
+    <input type="submit" value="Add Review" />
 
 </form>
