@@ -29,13 +29,24 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Meeples at Play</a>
             </div>
             <div class="navbar-collapse collapse">
+
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Game" asp-action="Index">Games</a></li>
                     <li><a asp-area="" asp-controller="Type" asp-action="Index">Game Types</a></li>
                     <li><a asp-area="" asp-controller="Genre" asp-action="Index">Genres</a></li>
                     <li><a asp-area="" asp-controller="Review" asp-action="Index">Reviews</a></li>
+                   
                 </ul>
+                
                 @await Html.PartialAsync("_LoginPartial")
+                <form asp-controller="Game" asp-action="Index">
+                    <ul>
+                    <li>
+                        Title: <input type="text" name="SearchString">
+                        <input type="submit" value="Filter" />
+                    </li>
+                    </ul>
+                </form>
             </div>
         </div>
     </nav>
@@ -69,5 +80,7 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
+

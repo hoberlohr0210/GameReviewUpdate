@@ -2,8 +2,8 @@
 
 <form method="post">
 
-    @if (User.IsInRole("Admin"))
-    {
+    @*@if (User.IsInRole("Admin"))*@
+    
 
         @foreach (var game in ViewBag.games)
         {
@@ -11,6 +11,6 @@
             <label for="@game.ID">@game.Title</label>
             <br />
         }
-    }
+    
     <input type="submit" value="Remove Selected Game(s)" />
 </form>

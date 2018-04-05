@@ -22,8 +22,8 @@ namespace GameReview.ViewModels
         [Display(Name = "Review")]
         public string Review { get; set; }
 
-        [Required(ErrorMessage ="Rating must be between 1-5")]
-        [Display(Name = "Rating 1-5")]
+        [Range(1, 5)]
+        [Display(Name = "Rating")]
         public int Rating { get; set; }
 
         public List<SelectListItem> Games { get; set; }
