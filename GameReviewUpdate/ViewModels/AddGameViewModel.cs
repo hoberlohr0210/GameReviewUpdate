@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GameReview.Models;
+﻿using GameReview.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace GameReview.ViewModels

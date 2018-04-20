@@ -1,13 +1,11 @@
-﻿
-using System.Collections.Generic;
-using System.Linq;
-using GameReview.Models;
+﻿using GameReview.Models;
 using GameReview.ViewModels;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using System;
 using GameReviewUpdate.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GameReview.Controllers
 {

@@ -17,9 +17,17 @@
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.carousel-inner .item img[src$=".jpg"] {
+    width: 600px !important;
+    height: 300px !important;
 }
+
+/*.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: auto;
+    height: auto;
+    max-height: 300px;
+    max-width: 300px;
+}*/
 
 /* QR code generator */
 #qrCode {
